@@ -33,7 +33,7 @@ module.exports = class Product {
         })
     }
 
-    static fetAll(callback) {
+    static fetchAll(callback) {
         getProductsFromFile(callback)
     }
 };
