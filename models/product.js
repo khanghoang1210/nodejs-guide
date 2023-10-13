@@ -70,7 +70,7 @@ module.exports = class Product {
             const updatedProducts = products.filter(prod => prod.id !== id);
             fs.writeFile(p, JSON.stringify(updatedProducts), (error) => {
                 if (!error) {
-                    Cart.deleteById(id, product.price);
+                    Cart.deleteProduct(id, product.price);
                 }
                 console.log(error);
             })
