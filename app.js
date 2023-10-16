@@ -8,8 +8,6 @@ const errorController = require("./controllers/error");
 
 const db = require("./util/database");
 
-db.execute("select * from products").then().catch();
-
 // app.set('view engine', "pug");
 app.set('view engine', "ejs");
 app.set("views", "views");
