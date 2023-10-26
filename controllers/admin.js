@@ -82,17 +82,17 @@ exports.postAddProduct = (req, res, next) => {
 // };
 
 
-// exports.getProducts = (req, res, next) => {
-//     req.user.getProducts().then(product => {
-//         res.render("admin/products", {
-//             prods: product,
-//             path: "/admin/products",
-//             pageTitle: "Admin Products"
-//         })
-//     })
-//         .catch(err => console.log(err))
+exports.getProducts = (req, res, next) => {
+    Product.fetchAll().then(product => {
+        res.render("admin/products", {
+            prods: product,
+            path: "/admin/products",
+            pageTitle: "Admin Products"
+        })
+    })
+        .catch(err => console.log(err))
 
-// };
+};
 
 // exports.postDeleteProduct = (req, res, _next) => {
 //     const prodId = req.body.productId;
