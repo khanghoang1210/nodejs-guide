@@ -6,14 +6,15 @@ const Order = require("../models/order");
 const { where } = require("sequelize");
 
 exports.getProducts = (req, res, next) => {
-    Product.findAll().then(products => {
-        res.render("shop/product-list",
-            {
-                prods: products,
-                pageTitle: 'Shop',
-                path: "/products",
-            });
-    })
+    Product.fetchAll()
+        .then(products => {
+            res.render("shop/product-list",
+                {
+                    prods: products,
+                    pageTitle: 'Shop',
+                    path: "/products",
+                });
+        })
         .catch(err => console.log(err));
 };
 
@@ -31,7 +32,7 @@ exports.getProduct = (req, res, next) => {
 };
 
 exports.getIndex = (req, res, next) => {
-    Product.findAll().then(products => {
+    Product.fetchAll().then(products => {
         res.render("shop/index",
             {
                 prods: products,

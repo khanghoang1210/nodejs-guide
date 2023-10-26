@@ -2,8 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const path = require("path");
+
 const adminRoutes = require("./routes/admin")
-// const shopRoutes = require("./routes/shop");
+const shopRoutes = require("./routes/shop");
+
 const errorController = require("./controllers/error");
 const mongodbConnect = require("./util/database").mongoConnect;
 
@@ -35,7 +37,8 @@ app.use((req, res, next) => {
 
 });
 app.use("/admin", adminRoutes);
-// app.use(shopRoutes);
+app.use(shopRoutes);
+
 app.use(errorController.get404);
 
 mongodbConnect(() => {
